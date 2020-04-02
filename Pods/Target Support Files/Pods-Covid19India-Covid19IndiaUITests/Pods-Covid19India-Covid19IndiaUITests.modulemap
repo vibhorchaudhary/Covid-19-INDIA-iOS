@@ -1,0 +1,6 @@
+framework module Pods_Covid19India_Covid19IndiaUITests {
+  umbrella header "Pods-Covid19India-Covid19IndiaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
