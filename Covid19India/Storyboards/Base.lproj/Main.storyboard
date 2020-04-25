@@ -202,7 +202,7 @@
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKe-4v-uIG">
                                                                                             <rect key="frame" x="5" y="10" width="70.5" height="13.5"/>
-                                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
@@ -230,7 +230,7 @@
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3Q-ms-A3B">
                                                                                             <rect key="frame" x="5" y="10" width="70.5" height="13.5"/>
-                                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
@@ -267,7 +267,7 @@
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpI-02-t0Z">
                                                                                             <rect key="frame" x="5" y="10" width="70.5" height="13.5"/>
-                                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
@@ -295,7 +295,7 @@
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deaths" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0G-CS-eIR">
                                                                                             <rect key="frame" x="5" y="10" width="70.5" height="13.5"/>
-                                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
