@@ -149,7 +149,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         cell.activeCountLabel.text = stateWiseModel?.active
         cell.confirmedCountLabel.text = stateWiseModel?.confirmed
-        cell.deathsLabel.text = stateWiseModel?.deaths
+        cell.deathsCountLabel.text = stateWiseModel?.deaths
         cell.recoveredCountLabel.text = stateWiseModel?.recovered
         
         cell.stateNameLabel.text = stateWiseModel?.state
