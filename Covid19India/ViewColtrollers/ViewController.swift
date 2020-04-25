@@ -10,27 +10,25 @@ import UIKit
 import Alamofire
 import RxSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var confirmedLabel: UILabel!
     
-    @IBOutlet weak var confirmedHead: UILabel!
+    @IBOutlet weak var confirmedCountLabel: UILabel!
     
-    @IBOutlet weak var confirmedHeadCount: UILabel!
+    @IBOutlet weak var activeLabel: UILabel!
     
-    @IBOutlet weak var recoveredHead: UILabel!
+    @IBOutlet weak var activeCountLabel: UILabel!
     
-    @IBOutlet weak var recoveredHeadCount: UILabel!
+    @IBOutlet weak var recoveredLabel: UILabel!
     
-    @IBOutlet weak var activeHead: UILabel!
+    @IBOutlet weak var recoveredCountLabel: UILabel!
     
-    @IBOutlet weak var activeHeadCount: UILabel!
+    @IBOutlet weak var deathLabel: UILabel!
     
-    @IBOutlet weak var deathsHead: UILabel!
+    @IBOutlet weak var deathCountLabel: UILabel!
     
-    @IBOutlet weak var deathsHeadCount: UILabel!
-    
-    @IBOutlet weak var lastReportedCaseTime: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func onRefreshClicked(_ sender: Any) {
         fetchDataFromServerAndUpdateUi()
@@ -41,9 +39,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = nil
-        tableView.dataSource = nil
-        tableView.isHidden = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.isHidden = true
+        
         
         fetchDataFromServerAndUpdateUi()
     }
@@ -59,10 +59,16 @@ class ViewController: UIViewController {
             self.covidData = covidDataModel
             self.setDataOnUi(covidDataModel)
             
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
-            self.tableView.isHidden = false
-            self.tableView.reloadData()
+            self.collectionView.isHidden = false
+            self.collectionView.reloadData()
+            
+            if self.covidData?.statewise != nil {
+                
+                if(self.covidData!.statewise![0].state!.elementsEqual("Total")) {
+                    self.covidData?.statewise?.remove(at: 0)
+                }
+            }
+            
             
         }, onError: { (error) in
             debugPrint("onError called")
@@ -95,18 +101,17 @@ class ViewController: UIViewController {
     
     func setDataOnUi(_ covidData:CovidDataModel) {
         debugPrint(covidData)
-        confirmedHead.text = "CONFIRMED"
-        deathsHead.text = "DEATHS"
-        activeHead.text = "ACTIVE"
-        recoveredHead.text = "RECOVERED"
-        lastReportedCaseTime.text = getLastReportedCaseTime(covidData.key_values!)
+        confirmedLabel.text = "CONFIRMED"
+        deathLabel.text = "DEATHS"
+        activeLabel.text = "ACTIVE"
+        recoveredLabel.text = "RECOVERED"
         
         let totalCountData:StateWiseModel = getTotalCountData(covidData.statewise!);
         
-        confirmedHeadCount.text = totalCountData.confirmed
-        deathsHeadCount.text = totalCountData.deaths
-        activeHeadCount.text = totalCountData.active
-        recoveredHeadCount.text = totalCountData.recovered
+        confirmedCountLabel.text = totalCountData.confirmed
+        deathCountLabel.text = totalCountData.deaths
+        activeCountLabel.text = totalCountData.active
+        recoveredCountLabel.text = totalCountData.recovered
         
     }
     
@@ -121,50 +126,49 @@ class ViewController: UIViewController {
         return totalData!
     }
     
-    func getLastReportedCaseTime(_ keyValuesModelList:[KeyValuesModel]) -> String {
-        var lateUpdatedTime:String = "LAST REPORTED CASE - "
-        for keyValuesModelData in keyValuesModelList {
-            lateUpdatedTime += keyValuesModelData.lastupdatedtime!
-            break;
+    
+    // MARK: Collection view methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return covidData?.statewise?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "statewisecell", for: indexPath) as! StateWiseCollectionViewCell
+        
+        let stateWiseModel = covidData?.statewise?[indexPath.row]
+        
+        guard stateWiseModel != nil else {
+            return cell;
         }
-        return lateUpdatedTime;
+        
+        cell.activeLabel.text = "Active"
+        cell.confirmedLabel.text = "Confirmed"
+        cell.deathsLabel.text = "Deaths"
+        cell.recoveredLabel.text = "Recovered"
+        
+        cell.activeCountLabel.text = stateWiseModel?.active
+        cell.confirmedCountLabel.text = stateWiseModel?.confirmed
+        cell.deathsLabel.text = stateWiseModel?.deaths
+        cell.recoveredCountLabel.text = stateWiseModel?.recovered
+        
+        cell.stateNameLabel.text = stateWiseModel?.state
+        
+        return cell;
     }
     
-    
-}
-
-
-extension ViewController:UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let stateWiseData:StateWiseModel = covidData!.statewise![indexPath.row]
-        debugPrint("Clicked at \(indexPath.row), state \(String(describing: stateWiseData.state))")
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let popOverVC:PopupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopupViewController") as! PopupViewController
-        
-        popOverVC.setData(stateWiseData: stateWiseData)
-        
-        self.addChild(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParent: self)
-        
+        return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.width/2)
     }
     
-}
-
-extension ViewController:UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        covidData!.statewise!.count
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:StateWiseCell = tableView.dequeueReusableCell(withIdentifier: "StateWiseCell", for: indexPath) as! StateWiseCell
-        
-        cell.setData(stateWiseDateModel: covidData!.statewise![indexPath.row])
-        
-        return cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
+    
     
 }

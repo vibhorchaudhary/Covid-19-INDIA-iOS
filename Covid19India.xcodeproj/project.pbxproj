@@ -21,8 +21,10 @@
 		51EA3CE32434B24900662396 /* KeyValuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EA3CE22434B24900662396 /* KeyValuesModel.swift */; };
 		51EA3CE52434B25F00662396 /* StateWiseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EA3CE42434B25F00662396 /* StateWiseModel.swift */; };
 		51EA3CE72434B2CF00662396 /* CovidDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EA3CE62434B2CF00662396 /* CovidDataModel.swift */; };
-		51EA3CE92434C08100662396 /* StateWiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EA3CE82434C08100662396 /* StateWiseCell.swift */; };
 		932AF4AB205C9EEF9F7A8D5A /* Pods_Covid19IndiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70980E6BF3344490AECA3586 /* Pods_Covid19IndiaTests.framework */; };
+		C0B8E8152454769A007268F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E8142454769A007268F5 /* CardView.swift */; };
+		C0B8E817245478BF007268F5 /* CustomPaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E816245478BF007268F5 /* CustomPaddedLabel.swift */; };
+		C0B8E81A24548742007268F5 /* StateWiseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E81924548742007268F5 /* StateWiseCollectionViewCell.swift */; };
 		D14391FDDCAF11FC99D4C1F4 /* Pods_Covid19India_Covid19IndiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26333524ED473946367E410E /* Pods_Covid19India_Covid19IndiaUITests.framework */; };
 		F2ED02D7328A93CC48754B3C /* Pods_Covid19India.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F73DED60A77E3BE301D4371E /* Pods_Covid19India.framework */; };
 /* End PBXBuildFile section */
@@ -69,10 +71,12 @@
 		51EA3CE22434B24900662396 /* KeyValuesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValuesModel.swift; sourceTree = "<group>"; };
 		51EA3CE42434B25F00662396 /* StateWiseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateWiseModel.swift; sourceTree = "<group>"; };
 		51EA3CE62434B2CF00662396 /* CovidDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDataModel.swift; sourceTree = "<group>"; };
-		51EA3CE82434C08100662396 /* StateWiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateWiseCell.swift; sourceTree = "<group>"; };
 		70980E6BF3344490AECA3586 /* Pods_Covid19IndiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19IndiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD34269B5C1BC64787752FE /* Pods-Covid19India.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19India.release.xcconfig"; path = "Target Support Files/Pods-Covid19India/Pods-Covid19India.release.xcconfig"; sourceTree = "<group>"; };
 		BB76F694E9C79CDC139969C8 /* Pods-Covid19India-Covid19IndiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19India-Covid19IndiaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Covid19India-Covid19IndiaUITests/Pods-Covid19India-Covid19IndiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C0B8E8142454769A007268F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C0B8E816245478BF007268F5 /* CustomPaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPaddedLabel.swift; sourceTree = "<group>"; };
+		C0B8E81924548742007268F5 /* StateWiseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateWiseCollectionViewCell.swift; sourceTree = "<group>"; };
 		E458F2ECB2104C49CACDA396 /* Pods-Covid19IndiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19IndiaTests.release.xcconfig"; path = "Target Support Files/Pods-Covid19IndiaTests/Pods-Covid19IndiaTests.release.xcconfig"; sourceTree = "<group>"; };
 		F73DED60A77E3BE301D4371E /* Pods_Covid19India.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19India.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,14 +156,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		512AD7A72435CFC500ABB6B4 /* TableCells */ = {
-			isa = PBXGroup;
-			children = (
-				51EA3CE82434C08100662396 /* StateWiseCell.swift */,
-			);
-			path = TableCells;
-			sourceTree = "<group>";
-		};
 		51EA3C98243489A900662396 = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +181,8 @@
 		51EA3CA3243489A900662396 /* Covid19India */ = {
 			isa = PBXGroup;
 			children = (
-				512AD7A72435CFC500ABB6B4 /* TableCells */,
+				C0B8E81824548721007268F5 /* CollectionViewCell */,
+				C0B8E8102454763E007268F5 /* CustomViews */,
 				512AD7A62435CF9E00ABB6B4 /* Constants */,
 				512AD7A52435C9EE00ABB6B4 /* Storyboards */,
 				512AD7A42435C9C800ABB6B4 /* Models */,
@@ -214,6 +211,23 @@
 				51EA3CC8243489AB00662396 /* Info.plist */,
 			);
 			path = Covid19IndiaUITests;
+			sourceTree = "<group>";
+		};
+		C0B8E8102454763E007268F5 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8E8142454769A007268F5 /* CardView.swift */,
+				C0B8E816245478BF007268F5 /* CustomPaddedLabel.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		C0B8E81824548721007268F5 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8E81924548742007268F5 /* StateWiseCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		F05F74DB41B6389AD03D49E0 /* Pods */ = {
@@ -302,6 +316,7 @@
 				TargetAttributes = {
 					51EA3CA0243489A900662396 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					51EA3CB6243489AB00662396 = {
 						CreatedOnToolsVersion = 11.4;
@@ -468,16 +483,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B8E81A24548742007268F5 /* StateWiseCollectionViewCell.swift in Sources */,
 				51EA3CDB2434A48200662396 /* Constants.swift in Sources */,
 				51EA3CE72434B2CF00662396 /* CovidDataModel.swift in Sources */,
 				51EA3CE32434B24900662396 /* KeyValuesModel.swift in Sources */,
 				51EA3CA9243489A900662396 /* ViewController.swift in Sources */,
+				C0B8E8152454769A007268F5 /* CardView.swift in Sources */,
 				51EA3CA5243489A900662396 /* AppDelegate.swift in Sources */,
 				512AD7A22435C99B00ABB6B4 /* PopupViewController.swift in Sources */,
 				51EA3CDF2434B17D00662396 /* CasesTimeSeriesModel.swift in Sources */,
 				51EA3CE52434B25F00662396 /* StateWiseModel.swift in Sources */,
 				51EA3CA7243489A900662396 /* SceneDelegate.swift in Sources */,
-				51EA3CE92434C08100662396 /* StateWiseCell.swift in Sources */,
+				C0B8E817245478BF007268F5 /* CustomPaddedLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +668,9 @@
 			baseConfigurationReference = 3C4F72BC430A76509B21BCD9 /* Pods-Covid19India.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 67K4FWK8RM;
 				INFOPLIST_FILE = Covid19India/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,6 +678,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vibhor.Covid19India;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -669,7 +689,9 @@
 			baseConfigurationReference = ACD34269B5C1BC64787752FE /* Pods-Covid19India.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 67K4FWK8RM;
 				INFOPLIST_FILE = Covid19India/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
