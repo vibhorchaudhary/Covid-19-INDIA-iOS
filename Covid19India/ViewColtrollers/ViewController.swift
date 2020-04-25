@@ -34,6 +34,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         fetchDataFromServerAndUpdateUi()
     }
     
+    @IBOutlet weak var dataStackView: UIStackView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var covidData:CovidDataModel?
     
     override func viewDidLoad() {
@@ -43,6 +47,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         
         collectionView.isHidden = true
+        dataStackView.isHidden = true
+        
+        activityIndicator.isHidden = false
         
         
         fetchDataFromServerAndUpdateUi()
@@ -59,6 +66,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.covidData = covidDataModel
             self.setDataOnUi(covidDataModel)
             
+            self.activityIndicator.isHidden = true
+            self.dataStackView.isHidden = false
             self.collectionView.isHidden = false
             self.collectionView.reloadData()
             

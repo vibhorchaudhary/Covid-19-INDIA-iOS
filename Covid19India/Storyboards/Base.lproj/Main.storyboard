@@ -20,6 +20,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx1-OO-aTi">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lyq-u4-mSK">
+                                        <rect key="frame" x="0.0" y="210" width="414" height="564"/>
+                                        <color key="color" red="0.5450980392" green="0.56862745100000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aNu-aM-ui5">
                                         <rect key="frame" x="10" y="10" width="394" height="200"/>
                                         <subviews>
@@ -373,9 +377,13 @@
                                 <constraints>
                                     <constraint firstItem="CVc-fb-akt" firstAttribute="leading" secondItem="Mx1-OO-aTi" secondAttribute="leading" constant="10" id="AUf-k9-lwK"/>
                                     <constraint firstAttribute="trailing" secondItem="CVc-fb-akt" secondAttribute="trailing" constant="10" id="DM3-pL-DtK"/>
+                                    <constraint firstAttribute="trailing" secondItem="lyq-u4-mSK" secondAttribute="trailing" id="Eyc-bM-Jfi"/>
                                     <constraint firstItem="CVc-fb-akt" firstAttribute="top" secondItem="aNu-aM-ui5" secondAttribute="bottom" constant="10" id="FIe-If-BI0"/>
+                                    <constraint firstItem="lyq-u4-mSK" firstAttribute="leading" secondItem="Mx1-OO-aTi" secondAttribute="leading" id="JWK-SO-T62"/>
                                     <constraint firstItem="aNu-aM-ui5" firstAttribute="top" secondItem="Mx1-OO-aTi" secondAttribute="top" constant="10" id="LQH-xH-ptF"/>
                                     <constraint firstItem="CVc-fb-akt" firstAttribute="leading" secondItem="Mx1-OO-aTi" secondAttribute="leading" constant="10" id="Ryj-Al-RRJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="lyq-u4-mSK" secondAttribute="bottom" id="SiC-GO-55e"/>
+                                    <constraint firstItem="lyq-u4-mSK" firstAttribute="top" secondItem="aNu-aM-ui5" secondAttribute="bottom" id="X0C-TR-VI9"/>
                                     <constraint firstAttribute="bottom" secondItem="CVc-fb-akt" secondAttribute="bottom" id="Yvq-HP-gT5"/>
                                     <constraint firstItem="aNu-aM-ui5" firstAttribute="leading" secondItem="Mx1-OO-aTi" secondAttribute="leading" constant="10" id="bHo-oF-jmu"/>
                                     <constraint firstAttribute="trailing" secondItem="CVc-fb-akt" secondAttribute="trailing" constant="10" id="eIK-GG-H3b"/>
@@ -404,9 +412,11 @@
                     <connections>
                         <outlet property="activeCountLabel" destination="in6-5T-eaa" id="PVd-0g-7he"/>
                         <outlet property="activeLabel" destination="Xb7-iq-hNa" id="PJO-Fp-x92"/>
+                        <outlet property="activityIndicator" destination="lyq-u4-mSK" id="Ul7-2s-A9o"/>
                         <outlet property="collectionView" destination="CVc-fb-akt" id="TEg-WX-bfE"/>
                         <outlet property="confirmedCountLabel" destination="vX1-nd-9Su" id="l75-L8-v8F"/>
                         <outlet property="confirmedLabel" destination="vX1-nd-9Su" id="LwY-yK-Twh"/>
+                        <outlet property="dataStackView" destination="aNu-aM-ui5" id="Fsz-Un-yh4"/>
                         <outlet property="deathCountLabel" destination="0mD-bK-gLl" id="sE2-wW-5qM"/>
                         <outlet property="deathLabel" destination="jgh-tM-Ouh" id="yL7-e7-PUx"/>
                         <outlet property="recoveredCountLabel" destination="PFC-c5-6hy" id="9Of-vM-BlD"/>
